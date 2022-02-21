@@ -1,0 +1,150 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- de_donde
+- negación
+- que_fecha
+- preguntar_nombre
+- afirmación
+- no_tengo_plata_intent
+- saludos
+- porque_no_puedo_intent
+- estoy_cesante_intent
+- ya_pagué_intent
+- out_of_scope
+- eres_humano
+- no_tengo_auto_intent
+- estoy_enfermo_intent
+- despedida
+- no_use_autopista_intent
+- vendí_el_auto_intent
+- no_quiero_pagar_intent
+- preguntar_monto
+- soy_yo
+- me_repite
+- space
+- start
+- inicio
+entities:
+- cesante
+- enfermo
+- no_ah_usado_autopista
+- no_puede
+- no_quiere_pagar
+- no_tengo_auto
+- no_tengo_plata
+- porque_no_puedo
+- respuesta
+- vendí_el_auto
+- ya_pago
+slots:
+  es_o_no:
+    type: text
+    influence_conversation: true
+  conoce_o_no:
+    type: text
+    influence_conversation: true
+  autoriza_o_no:
+    type: text
+    influence_conversation: true
+  pagará_o_no:
+    type: text
+    influence_conversation: true
+  razon:
+    type: text
+    influence_conversation: true
+
+responses:
+  utter_default:
+  - text: Disculpe ¿Sería tan amable de responder con un si o un no?
+  utter_default_repetir:
+  - text: Disculpe, no le entendí
+  utter_disculpe_molestia:
+  - text: Disculpe la molestia, que tenga un buen día, Adiós.
+  utter_si_conoce:
+  - text: Podría comentarle que tenemos información importante y que nos puede encontrar en triple w .sicc.cl o llamando al 223658000 porfavor. Muchas gracias por su tiempo, adiós.
+  utter_negación_pago:
+  - text: ¿Podría indicarnos el motivo?
+  utter_despedida:
+  - text: Muchas gracias por su tiempo, adiós | EXIT
+  utter_bot:
+  - text: Soy un asistente virtual.
+actions:
+- action_ask_question
+- action_ask_question2
+- action_ask_question3
+- action_autoriza_o_no
+- action_conoce
+- action_contactar
+- action_despedida
+- action_no_paga
+- action_dar_hora
+- action_donde
+- action_donde2
+- action_enviar_slots
+- action_fecha
+- action_final
+- action_guardar_conoce_o_no
+- action_hello
+- action_hello2
+- action_monto
+- action_quien
+- action_recibir_es_o_no
+- action_recibir_paga_o_no
+- action_request
+- action_restart2
+- action_say_reason
+- action_si_conoce
+- action_si_paga
+- action_tracker_id
+- utter_bot
+- utter_default
+- utter_default_repetir
+- utter_despedida
+- action_is_logged_in
+- action_slot_reset
+- action_guardar_razón
+forms:
+  persona_form:
+    required_slots:
+      es_o_no:
+      - entity: respuesta
+        type: from_entity
+  lo_conoce_form:
+    required_slots:
+      conoce_o_no:
+      - entity: respuesta
+        type: from_entity
+  paga_form:
+    required_slots:
+      pagará_o_no:
+      - entity: respuesta
+        type: from_entity
+  razon_de_no_pago_form:
+    required_slots:
+      razon:
+      - entity: sin_razón
+        type: from_entity
+      - entity: cesante
+        type: from_entity
+      - entity: no_tengo_plata
+        type: from_entity
+      - entity: enfermo
+        type: from_entity
+      - entity: no_ah_usado_autopista
+        type: from_entity
+      - entity: no_puede
+        type: from_entity
+      - entity: no_quiere_pagar
+        type: from_entity
+      - entity: no_tengo_auto
+        type: from_entity
+      - entity: vendí_el_auto
+        type: from_entity
+      - entity: ya_pago
+        type: from_entity
+
+
+

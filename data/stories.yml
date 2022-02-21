@@ -1,0 +1,834 @@
+version: "2.0"
+stories:
+
+  - story: no es y si conoce
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_conoce
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: lo_conoce_form
+    - active_loop: lo_conoce_form
+    - slot_was_set:
+      - conoce_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_si_conoce
+    - action: action_recibir_es_o_no
+    - action: action_guardar_conoce_o_no
+    - action: action_final
+    - action: action_restart2
+
+
+  - story: no es, no lo conoce
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: negación
+      entities:
+      - respuesta: no 
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_conoce
+    - intent: negación
+      entities:
+      - respuesta: no lo conozco
+    - action: lo_conoce_form
+    - active_loop: lo_conoce_form
+    - slot_was_set:
+      - conoce_o_no: no 
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_disculpe_molestia
+    - action: action_recibir_es_o_no
+    - action: action_guardar_conoce_o_no
+    - action: action_final
+    - action: action_restart2
+
+
+  - story: si es y si paga
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si 
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_si_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_final
+    - action: action_restart2
+
+
+ 
+  - story: si es pero no paga porque esta cesante
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si 
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: estoy_cesante_intent
+      entities:
+      - cesante: porque estoy sin trabajo
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: cesante
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+
+
+  - story: si es pero no paga y no da razón
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: sin razón
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+
+  - story: si es pero no paga porque no ah usado autopista
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si 
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: no_use_autopista_intent
+      entities:
+      - no_ah_usado_autopista: no use la autopista
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: no ah usado
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+
+
+
+  - story: si es pero no paga porque ya pago
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: ya_pagué_intent
+      entities:
+      - ya_pago: ya pague
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: ya pago
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+
+
+
+  - story: no paga y no quiere
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si 
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: negación
+      entities:
+      - respuesta: no 
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: no_quiero_pagar_intent
+      entities:
+      - no_quiere_pagar: no quiero
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: no quiere
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+
+
+
+  - story: Si es, no paga porque esta enfermo
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si 
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: estoy_enfermo_intent
+      entities:
+      - enfermo: estoy enfermo
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: enfermo
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+
+
+  - story: si es y no paga porque no tiene auto
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: no_tengo_auto_intent
+      entities:
+      - no_tengo_auto: no tengo auto
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: no tiene auto
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+
+
+  - story: si es, no paga porque no puede
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si 
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: porque_no_puedo_intent
+      entities:
+      - no_puede: no puedo
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: porque_no_puedo_intent
+      entities:
+      - no_puede: no puedo
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: no puede
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+  - story: no paga porque no tiene dinero
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: no_tengo_plata_intent
+      entities:
+      - no_tengo_plata: no tengo dinero
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: no tengo dinero
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+
+  - story: no paga porque vendio el auto
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: vendí_el_auto_intent
+      entities:
+      - vendí_el_auto: vendí el auto
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: vendí el auto
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2 
+
+
+
+
+
+
+  - story: si es, saluda y no es
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello 
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_conoce
+    - checkpoint: action_ask_conoce
+
+  - story: no es, saluda y si es
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello 
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - checkpoint: action_ask
+
+  - story: no es y saluda
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello 
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_conoce
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+
+  - story: si es y saluda
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello 
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+
+  - story: si es, saluda y si es
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello 
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - checkpoint: action_ask
+
+  - story: no es, saluda y no es
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello 
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_conoce
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_conoce
+    - checkpoint: action_ask
+
+  - story: finish flow
+    steps:
+    - checkpoint: action_ask
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: no
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: vendí_el_auto_intent
+      entities:
+      - vendí_el_auto: vendí el auto
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: vendí el auto
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2 
+
+  - story: finish flow
+    steps:
+    - checkpoint: action_ask
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: paga_form
+    - active_loop: paga_form
+    - slot_was_set:
+      - pagará_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: no_tengo_plata_intent
+      entities:
+      - no_tengo_plata: no tengo dinero
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: no tengo dinero
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
+    - action: action_final
+    - action: action_restart2
+
+
+  - story: no es no conoce
+    steps:
+    - checkpoint: action_ask_conoce
+    - intent: negación
+      entities:
+      - respuesta: no
+    - action: lo_conoce_form
+    - active_loop: lo_conoce_form
+    - slot_was_set:
+      - conoce_o_no: no 
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_despedida
+    - action: action_recibir_es_o_no
+    - action: action_guardar_conoce_o_no
+    - action: action_final
+    - action: action_restart2
+
+  - story: no es si conoce
+    steps:
+    - checkpoint: action_ask_conoce
+    - intent: afirmación
+      entities:
+      - respuesta: si
+    - action: lo_conoce_form
+    - active_loop: lo_conoce_form
+    - slot_was_set:
+      - conoce_o_no: si 
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_si_conoce
+    - action: action_recibir_es_o_no
+    - action: action_guardar_conoce_o_no
+    - action: action_final
+    - action: action_restart2
+

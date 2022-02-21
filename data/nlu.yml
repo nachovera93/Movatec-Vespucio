@@ -1,0 +1,298 @@
+version: "2.0"
+nlu:
+
+- intent: afirmación
+  examples: |
+    - [el mismo](respuesta)
+    - [cierto](respuesta)
+    - [claro](respuesta)
+    - [correcto](respuesta)
+    - eso suena bien
+    - [yes](respuesta)
+    - [si](respuesta) porfavor
+    - [porsupuesto](respuesta)
+    - [yup](respuestasi)
+    - [yeah](respuesta)
+    - [yes](respuesta) please
+    - [seguro](respuesta)
+    - [ye](respuesta)
+    - eso sería genial
+    - [positivo](respuesta)
+    - [afirmativo](respuesta)
+    - [Yup](respuesta)
+    - [Yea](respuesta)
+    - [Yeah](respuesta)
+    - [Yeah](respuesta) seguro
+    - [Yep](respuesta)
+    - [Yep](respuesta) suena bien
+    - [Sep]!(respuesta)
+    - [Sipp](respuesta)
+    - [Sip](respuesta)
+    - [Si](respuesta)
+    - [si](respuesta) porfa
+    - [sii](respuesta)
+    - [eso](respuesta)
+    - [sip](respuesta)
+    - ah [si](respuesta)
+    - [si](respuesta)
+    - [sii](respuesta) porque?
+    - [si](respuesta) pero no está
+    - [si](respuesta) dime
+    - [si](respuesta) con el
+    - ah [bueno](respuesta)
+    - [si](respuesta), con el
+    - [si](respuesta) pero no esta
+    - [si](respuesta) con el mismo
+    - [si](respuesta) con quien
+    - que [si](respuesta)
+    - [sí](respuesta)
+    - [siiii](respuesta)
+    - [siii](respuesta)
+    - [sii](respuesta)
+    - la verdad es que [si](respuesta)
+- intent: negación
+  examples: |
+    - [negativo](respuesta)
+    - [no](respuesta) puedo
+    - [no](respuesta) creo
+    - [no](respuesta)
+    - pienso que [no](respuesta)
+    - [nunca](respuesta)
+    - [de ninguna manera](respuesta)
+    - [nope](respuesta)
+    - [no](respuesta) gracias
+    - [nada](respuesta)
+    - [jamás](respuestano)
+    - [equivocado](respuesta)
+    - me [declino](respuesta)
+    - [no](respuesta) me gusta eso
+    - [no](respuesta) lo creo
+    - ehh [no](respuesta)
+    - [no](respuesta) quiero aceptar
+    - creo que me referia a que [no](respuesta)
+    - [no](respuesta) estoy seguro
+    - [no](respuesta) lo conozco
+    - [no](respuesta) soy
+    - [no](respuesta) señor
+    - [nop](respuesta)
+    - [no](respuesta) señorita
+    - [nop](respuesta), [no soy](respuesta)
+    - [no](respuesta) equivocado
+    - [no](respuesta) quiero
+    - ehhh [no](respuesta)
+    - [no] lo conozco(respuesta)
+    - ah [no](respuesta)
+    - [no](respuesta) lo cacho
+    - [nó](respuesta)
+    - [noooo](respuesta)
+    - [nooo](respuesta)
+    - [noooooo](respuesta)
+    - te dije que [no](respuesta)
+    - te dije que [nooo](respuesta)
+    - la verdad es que [no](respuesta)
+- intent: saludos
+  examples: |
+    - hola
+    - ola
+    - alo
+    - que tal?
+    - Hola
+    - Holaaaaaaaaaa
+    - holaaaaaaa
+    - alooooooo
+    - olaaa
+    - yo
+    - buenos dias
+    - hi
+    - alo ahí
+    - hey
+    - buenas tardes
+    - hello
+    - alo?
+    - hola estás ahi?
+    - alo estas ahi?
+    - Hey
+    - hi!
+    - hola tu
+    - Holas
+    - Bienvenido
+    - Hola gertrudis
+    - holas
+    - Alo
+- intent: despedida
+  examples: |
+    - adios
+    - chao
+    - nos vemos
+    - xao
+    - arioz
+    - nos vemos al rato
+    - chau
+    - termine
+    - salir
+    - parar
+    - bye
+    - hasta luego
+    - goodbye
+    - muchas gracias, nos vemos
+    - que tenga un buen dia, adios
+    - bye bye
+    - debo irme
+    - bye bye bot
+    - adios por ahora
+    - adios fue bueno hablar contigo
+    - bye!
+    - chaooo
+    - ciao
+    - cya
+    - farewell
+    - good bye
+    - good bye bot!
+    - buenas noches
+- intent: me_repite
+  examples: |
+    - no entendí repite
+    - repitelo
+    - repite
+    - me puede repetir la pregunta
+    - lo puede repetir?
+    - repita porfavor
+    - no entendí
+    - de nuevo porfavor
+    - me repite porfavor?
+    - no entendí, denuevo  porfa
+    - me puede repetir la pregunta?
+    - no entendi, denuevo porfa
+    - no entendí, repita porfavor
+    - me repite porfa
+    - como
+    - como?
+    - no escuche repita porfavor
+    - repiteme porfavor
+    - no entendi
+    - como dijo?
+
+- intent: out_of_scope
+  examples: |
+    - digame
+    - cuenteme
+    - yo creo
+    - ok
+    - ah ya
+    - ya
+
+- intent: preguntar_nombre
+  examples: |
+    - a quien?
+    - a quien busca?
+    - con quien?
+    - disculpa a quien?
+    - a quien me dijo?
+    - con quien
+
+- intent: preguntar_monto
+  examples: |
+    - perdon cuanto?
+    - me repite el monto porfavor?
+    - disculpa, cuanta plata?
+    - cuanto es el monto?
+    - y cuanto erá?
+    - y cuanta plata erá?
+    - disculpa cual era el monto?
+    - cuanto
+    - monto
+- intent: que_fecha
+  examples: |
+    - cuando disculpa?
+    - me repite la fecha porfavor?
+    - cual era la fecha?
+    - que dia?
+    - que fecha erá?
+    - que día erá?
+    - disculpa cual era la fecha?
+    - fecha
+    - cuando
+- intent: de_donde
+  examples: |
+    - donde?
+    - de donde llama disculpe?
+    - me repite de donde porfavor?
+    - de donde?
+    - donde
+    - de que parte?
+    - de que parte llama?
+    - de que parte es esto?
+
+- intent: soy_yo
+  examples: |
+    - soy yo
+    - si soy yo
+
+
+- intent: inicio
+  examples: |
+    - inicio
+    - Inicio
+
+
+- intent: estoy_cesante_intent 
+  examples: |
+    - [no tengo trabajo](cesante)
+    - estoy [sin pega](cesante)
+    - estoy [sin trabajo](cesante)
+    - estoy [cesante](cesante)
+    - porque [no tengo trabajo](cesante)
+    - no podré, [no tengo pega](cesante)
+    - [no hay pega](cesante)
+    - disculpe [no tengo trabajo](cesante)
+
+- intent: no_tengo_plata_intent  
+  examples: |
+    - [no tengo plata](no_tengo_plata)
+    - estoy [sin dinero](no_tengo_plata)
+    - [no tengo dinero](no_tengo_plata)
+    - estoy [sin plata](no_tengo_plata)
+    - estoy [pato](no_tengo_plata)
+
+- intent: estoy_enfermo_intent  
+  examples: |
+    - estoy [enfermo](enfermo)
+    - tengo una [enfermedad](enfermo)
+    - estoy [convaleciente](enfermo)
+
+- intent: no_use_autopista_intent
+  examples: |
+    - [no he usado](no_ah_usado_autopista) esa autopista
+    - que raro yo [no la ocupe](no_ah_usado_autopista)
+    - [no use](no_ah_usado_autopista)
+
+- intent: no_tengo_auto_intent 
+  examples: |
+    - [no tengo auto](no_tengo_auto)
+    - [no tengo el auto](no_tengo_auto)
+    - que raro, yo [no tengo auto](no_tengo_auto)
+
+- intent: vendí_el_auto_intent
+  examples: |
+    - [vendí el auto](vendí_el_auto)
+    - que raro, porque (lo vendí)(vendí_el_auto)
+
+- intent: porque_no_puedo_intent 
+  examples: |
+    - [no puedo](no_puede) 
+    - en estos momentos [no puedo](no_puede) 
+    - porque [no puedo](no_puede)
+
+- intent: no_quiero_pagar_intent 
+  examples: |
+    - [no quiero](no_quiere_pagar) pagar
+    - porque [no quiero](no_quiere_pagar)
+    - [no tengo ganas](no_quiere_pagar) de pagar
+
+- intent: ya_pagué_intent  
+  examples: |
+    - [Ya pagué](ya_pago)
+    - [Ya pague](ya_pago)
+    - yo [ya cancele](ya_pago) eso
+    - no porque [ya pagué](ya_pago)
+    - porque [ya pagué](ya_pago)

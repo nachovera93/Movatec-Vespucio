@@ -1,0 +1,229 @@
+version: "2.0"
+rules:
+
+    
+ 
+  - rule: eres bot1?
+    steps:
+      - action: action_hello
+      - intent: eres_humano
+      - action: utter_bot
+      - action: action_hello
+
+  - rule: eres bot2?
+    steps:
+      - action: action_ask_question
+      - intent: eres_humano
+      - action: utter_bot
+      - action: action_ask_question
+
+  - rule: eres bot3?
+    steps:
+      - action: action_conoce
+      - intent: eres_humano
+      - action: utter_bot
+      - action: action_conoce
+
+
+  - rule: eres bot6?
+    steps:
+      - action: action_si_paga
+      - intent: eres_humano
+      - action: utter_bot
+      - action: action_si_paga
+
+  - rule: eres bot7?
+    steps:
+      - action: action_no_paga
+      - intent: eres_humano
+      - action: utter_bot
+      - action: action_no_paga
+
+
+      
+  - rule: fallback
+    steps:
+      - intent: out_of_scope
+      - action: utter_default
+
+
+#  - rule: fallback2
+#    steps:
+#      - intent: nlu_fallback
+#      - action: utter_default_repetir
+
+
+  - rule: me repite 1
+    steps:
+      - action: action_hello
+      - intent: me_repite
+      - action: action_hello
+
+  - rule: me repite 2
+    steps:
+      - action: action_ask_question
+      - intent: me_repite
+      - action: action_ask_question
+
+  - rule: me repite 3
+    steps:
+      - action: action_conoce
+      - intent: me_repite
+      - action: action_conoce
+
+
+
+  - rule: me repite 6
+    steps:
+      - action: action_si_paga
+      - intent: me_repite
+      - action: action_si_paga
+
+  - rule: me repite 7
+    steps:
+      - action: action_no_paga
+      - intent: me_repite
+      - action: action_no_paga
+
+
+  - rule: me repite 10
+    steps:
+      - action: action_monto
+      - intent: me_repite
+      - action: action_monto
+
+  - rule: me repite 11
+    steps:
+      - action: action_hello2
+      - intent: me_repite
+      - action: action_hello2
+
+  - rule: me repite 12
+    steps:
+      - action: action_quien
+      - intent: me_repite
+      - action: action_quien
+
+  - rule: me repite 13
+    steps:
+      - action: action_donde
+      - intent: me_repite
+      - action: action_donde
+
+
+  - rule: me repite 14
+    steps:
+      - action: action_donde2
+      - intent: me_repite
+      - action: action_donde2
+
+  - rule: me repite 14
+    steps:
+      - action: action_fecha
+      - intent: me_repite
+      - action: action_fecha
+
+#  - rule: fallback2
+#    steps:
+#      - action: action_hello
+#      - intent: out_of_scope
+#      - action: action_hello
+
+#  - rule: fallback3
+#    steps:
+#      - action: action_ask_question
+#      - intent: out_of_scope
+#      - action: action_ask_question
+
+#  - rule: fallback4
+#    steps:
+#      - action: action_conoce
+#      - intent: out_of_scope
+#      - action: action_conoce
+
+#  - rule: fallback5
+#    steps:
+#      - action: action_si_conoce
+#      - intent: out_of_scope
+#      - action: action_si_conoce
+
+
+#  - rule: fallback7
+#    steps:
+#      - action: action_si_paga
+#      - intent: out_of_scope
+#      - action: action_si_paga
+
+#  - rule: fallback8
+#    steps:
+#      - action: action_no_paga
+#      - intent: out_of_scope
+#      - action: action_no_paga
+
+
+
+  - rule: pregunta fecha
+    steps:
+      - intent: que_fecha
+      - action: action_fecha
+#      - action: action_ask_question2
+#      - action: action_ask_question
+
+
+  - rule: pregunta monto
+    steps:
+      - intent: preguntar_monto
+      - action: action_monto
+#      - action: action_ask_question2
+#      - action: action_ask_question
+
+  - rule: pregunta nombre
+    steps:
+      - intent: preguntar_nombre
+      - action: action_quien
+#      - action: action_ask_question2
+#      - action: action_hello
+
+  - rule: de que parte llama
+    steps:
+      - action: action_hello
+      - intent: de_donde
+      - action: action_donde
+      - action: action_hello2
+
+  - rule: de que parte llama
+    steps:
+      - intent: de_donde
+      - action: action_donde
+
+
+  - rule: de que parte llama2
+    steps:
+      - action: action_ask_question
+      - intent: de_donde
+      - action: action_donde2
+
+#  - rule: saludos
+#    steps:
+#      - intent: saludos
+#      - action: action_hello
+      
+
+  - rule: Confirm that the bot is not a human
+    steps:
+      - intent: soy_yo
+      - action: action_ask_question
+   
+  - rule: despedida
+    steps:
+      - intent: despedida
+      - action: utter_despedida
+      - action: action_recibir_es_o_no
+      - action: action_guardar_conoce_o_no
+      - action: action_recibir_paga_o_no
+      - action: action_guardar_razón
+      - action: action_final
+      - action: action_restart2  
+
+ 
+
