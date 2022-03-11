@@ -40,7 +40,7 @@ nlu:
     - [si](respuesta) dime
     - [si](respuesta) con el
     - ah [bueno](respuesta)
-    - [si](respuesta), con el
+    - [si](respuesta), con ella
     - [si](respuesta) pero no esta
     - [si](respuesta) con el mismo
     - [si](respuesta) con quien
@@ -50,6 +50,21 @@ nlu:
     - [siii](respuesta)
     - [sii](respuesta)
     - la verdad es que [si](respuesta)
+    - [con el](respuesta)
+    - [con ella](respuesta)
+    - [ok](respuesta)
+    - [ti](respuesta)
+    - [tiii](respuesta)
+    - [mande](respuesta)
+    - [mandé](respuesta)
+    - [digame](respuesta)
+    - [diga](respuesta)
+    - [soy yo](respuesta)
+    - si [soy yo](respuesta)
+    - [y](respuesta)
+    - [i](respuesta)
+    - [yy](respuesta) 
+    - [cuenteme](respuesta)
 - intent: negación
   examples: |
     - [negativo](respuesta)
@@ -171,24 +186,48 @@ nlu:
     - repiteme porfavor
     - no entendi
     - como dijo?
+    - que necesita?
 
 - intent: out_of_scope
   examples: |
-    - digame
-    - cuenteme
     - yo creo
-    - ok
     - ah ya
     - ya
-
-- intent: preguntar_nombre
+#- digame
+- intent: eres_humano
   examples: |
-    - a quien?
-    - a quien busca?
+    - eres un bot?
+    - eres bot?
+    - estoy hablando con una ia?
+    - eres un humano o un bot?
+    - eres real?
+    - eres virtual?
+    - eres una ai?
+    - no eres un bot
+    - eres un chatbot
+    - eres un bot real?
+    - eres un robot
+    - eres una inteligencia artifial
+    - eres artifical
+    - eres real
+    - eres de verdad un robot?
+    - eres de verdad un bot?
+    - estas seguro que eres un bot?
+    - bot?
+    - robot?
+    - eres un robot?
+    - con quien hablo?
+    - quien eres?
+    - quien me habla?
+    - con quien estoy hablando?
+    - con quien hablo?
+    - quien habla
     - con quien?
-    - disculpa a quien?
-    - a quien me dijo?
+    - disculpa quien habla?
+    - quien me dijo?
     - con quien
+
+    
 
 - intent: preguntar_monto
   examples: |
@@ -223,76 +262,11 @@ nlu:
     - de que parte llama?
     - de que parte es esto?
 
-- intent: soy_yo
+- intent: que_hora_es
   examples: |
-    - soy yo
-    - si soy yo
+    - que hora es
+    - dame la hora porfavor
+    - cual es el horario
+    - hora porfavor
+    - dime hora
 
-
-- intent: inicio
-  examples: |
-    - inicio
-    - Inicio
-
-
-- intent: estoy_cesante_intent 
-  examples: |
-    - [no tengo trabajo](cesante)
-    - estoy [sin pega](cesante)
-    - estoy [sin trabajo](cesante)
-    - estoy [cesante](cesante)
-    - porque [no tengo trabajo](cesante)
-    - no podré, [no tengo pega](cesante)
-    - [no hay pega](cesante)
-    - disculpe [no tengo trabajo](cesante)
-
-- intent: no_tengo_plata_intent  
-  examples: |
-    - [no tengo plata](no_tengo_plata)
-    - estoy [sin dinero](no_tengo_plata)
-    - [no tengo dinero](no_tengo_plata)
-    - estoy [sin plata](no_tengo_plata)
-    - estoy [pato](no_tengo_plata)
-
-- intent: estoy_enfermo_intent  
-  examples: |
-    - estoy [enfermo](enfermo)
-    - tengo una [enfermedad](enfermo)
-    - estoy [convaleciente](enfermo)
-
-- intent: no_use_autopista_intent
-  examples: |
-    - [no he usado](no_ah_usado_autopista) esa autopista
-    - que raro yo [no la ocupe](no_ah_usado_autopista)
-    - [no use](no_ah_usado_autopista)
-
-- intent: no_tengo_auto_intent 
-  examples: |
-    - [no tengo auto](no_tengo_auto)
-    - [no tengo el auto](no_tengo_auto)
-    - que raro, yo [no tengo auto](no_tengo_auto)
-
-- intent: vendí_el_auto_intent
-  examples: |
-    - [vendí el auto](vendí_el_auto)
-    - que raro, porque (lo vendí)(vendí_el_auto)
-
-- intent: porque_no_puedo_intent 
-  examples: |
-    - [no puedo](no_puede) 
-    - en estos momentos [no puedo](no_puede) 
-    - porque [no puedo](no_puede)
-
-- intent: no_quiero_pagar_intent 
-  examples: |
-    - [no quiero](no_quiere_pagar) pagar
-    - porque [no quiero](no_quiere_pagar)
-    - [no tengo ganas](no_quiere_pagar) de pagar
-
-- intent: ya_pagué_intent  
-  examples: |
-    - [Ya pagué](ya_pago)
-    - [Ya pague](ya_pago)
-    - yo [ya cancele](ya_pago) eso
-    - no porque [ya pagué](ya_pago)
-    - porque [ya pagué](ya_pago)
