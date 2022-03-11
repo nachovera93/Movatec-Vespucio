@@ -857,3 +857,26 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_guardar_conoce_o_no
     - action: action_restart2
+
+
+
+#  - story: de que parte llama
+#    steps:
+#      - action: action_hello
+#      - intent: de_donde
+#      - action: action_donde
+#      - action: action_hello2
+#      - intent: afirmación
+#      - action: action_ask_question
+#      - checkpoint: action_ask
+
+#  - story: de que parte llama
+#    steps:
+#      - action: action_hello
+#      - intent: de_donde
+#      - action: action_donde
+#      - action: action_hello2
+#      - intent: negación
+#      - action: action_ask_question
+#      - checkpoint: action_ask
+
