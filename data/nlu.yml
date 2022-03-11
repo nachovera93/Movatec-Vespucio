@@ -1,4 +1,4 @@
-version: "2.0"
+ersion: "2.0"
 nlu:
 
 - intent: afirmación
@@ -269,4 +269,73 @@ nlu:
     - cual es el horario
     - hora porfavor
     - dime hora
+
+
+- intent: inicio
+  examples: |
+    - inicio
+    - Inicio
+
+
+- intent: estoy_cesante_intent 
+  examples: |
+    - [no tengo trabajo](cesante)
+    - estoy [sin pega](cesante)
+    - estoy [sin trabajo](cesante)
+    - estoy [cesante](cesante)
+    - porque [no tengo trabajo](cesante)
+    - no podré, [no tengo pega](cesante)
+    - [no hay pega](cesante)
+    - disculpe [no tengo trabajo](cesante)
+
+- intent: no_tengo_plata_intent  
+  examples: |
+    - [no tengo plata](no_tengo_plata)
+    - estoy [sin dinero](no_tengo_plata)
+    - [no tengo dinero](no_tengo_plata)
+    - estoy [sin plata](no_tengo_plata)
+    - estoy [pato](no_tengo_plata)
+
+- intent: estoy_enfermo_intent  
+  examples: |
+    - estoy [enfermo](enfermo)
+    - tengo una [enfermedad](enfermo)
+    - estoy [convaleciente](enfermo)
+
+- intent: no_use_autopista_intent
+  examples: |
+    - [no he usado](no_ah_usado_autopista) esa autopista
+    - que raro yo [no la ocupe](no_ah_usado_autopista)
+    - [no use](no_ah_usado_autopista)
+
+- intent: no_tengo_auto_intent 
+  examples: |
+    - [no tengo auto](no_tengo_auto)
+    - [no tengo el auto](no_tengo_auto)
+    - que raro, yo [no tengo auto](no_tengo_auto)
+
+- intent: vendí_el_auto_intent
+  examples: |
+    - [vendí el auto](vendí_el_auto)
+    - que raro, porque (lo vendí)(vendí_el_auto)
+
+- intent: porque_no_puedo_intent 
+  examples: |
+    - [no puedo](no_puede) 
+    - en estos momentos [no puedo](no_puede) 
+    - porque [no puedo](no_puede)
+
+- intent: no_quiero_pagar_intent 
+  examples: |
+    - [no quiero](no_quiere_pagar) pagar
+    - porque [no quiero](no_quiere_pagar)
+    - [no tengo ganas](no_quiere_pagar) de pagar
+
+- intent: ya_pagué_intent  
+  examples: |
+    - [Ya pagué](ya_pago)
+    - [Ya pague](ya_pago)
+    - yo [ya cancele](ya_pago) eso
+    - no porque [ya pagué](ya_pago)
+    - porque [ya pagué](ya_pago)
 
