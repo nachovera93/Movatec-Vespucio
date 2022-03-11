@@ -186,7 +186,7 @@ class ActionSiPaga(Action):
         print(f'Dia a pagar {(today_date + td).day}')
         print(f'Mes a pagar {(today_date + td).month}')
         print(f'Año a pagar {(today_date + td).year}') 
-        dispatcher.utter_message(f"Muchas gracias por su tiempo {primernombre}. Su pago ah quedado agendado para el {dia} de {nombreMes} del {anio}. Para mas información puede ingresar a triple doble b .sicc.cl | EXIT")
+        dispatcher.utter_message(f"Muchas gracias por su tiempo {nombre}. Su pago ah quedado agendado para el {dia} de {nombreMes} del {anio}. Para mas información puede ingresar a triple doble b .sicc.cl | EXIT")
         Updates(3,motivo,3,derivacion,fechaPago,"Si",uniqueid,rut) 
         return []
 
@@ -382,7 +382,7 @@ class FechaVencimiento(Action):
         global uniqueid
         uniqueid = tracker.sender_id
         Querys(uniqueid)
-        dispatcher.utter_message(f'La fecha sería el {dia} de {nombreMes} del {anio}, osea dentro de 3 días. Cree que podrá cancelar?')
+        dispatcher.utter_message(f'La fecha sería el {dia} de {nombreMes} del {anio}, osea dentro de 3 días. Podrá cancelar?')
         return []
 
 
