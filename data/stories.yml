@@ -30,7 +30,6 @@ stories:
     - action: action_si_conoce
     - action: action_recibir_es_o_no
     - action: action_guardar_conoce_o_no
-    - action: action_final
     - action: action_restart2
 
 
@@ -63,7 +62,6 @@ stories:
     - action: utter_disculpe_molestia
     - action: action_recibir_es_o_no
     - action: action_guardar_conoce_o_no
-    - action: action_final
     - action: action_restart2
 
 
@@ -96,7 +94,6 @@ stories:
     - action: action_si_paga
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
-    - action: action_final
     - action: action_restart2
 
 
@@ -142,7 +139,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2
 
 
@@ -188,7 +184,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2
 
 
@@ -233,7 +228,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2
 
 
@@ -280,7 +274,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2
 
 
@@ -327,7 +320,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2
 
 
@@ -374,7 +366,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2
 
 
@@ -420,7 +411,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2
 
 
@@ -444,10 +434,10 @@ stories:
     - intent: porque_no_puedo_intent
       entities:
       - no_puede: no puedo
-    - action: paga_form
-    - active_loop: paga_form
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
     - slot_was_set:
-      - pagará_o_no: no
+      - razon: no puede
     - slot_was_set:
       - requested_slot: null
     - active_loop: null
@@ -466,7 +456,49 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
+    - action: action_restart2
+
+  - story: si es, no paga porque no puede
+    steps:
+    - intent: saludos
+    - action: action_slot_reset
+    - action: action_hello
+    - intent: afirmación
+      entities:
+      - respuesta: si 
+    - action: persona_form
+    - active_loop: persona_form
+    - slot_was_set:
+      - es_o_no: si
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_ask_question
+    - intent: porque_no_puedo_intent
+      entities:
+      - no_puede: no puedo
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: no puede
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: utter_negación_pago
+    - intent: negación
+      entities:
+      - respuesta: no 
+    - action: razon_de_no_pago_form
+    - active_loop: razon_de_no_pago_form
+    - slot_was_set:
+      - razon: no 
+    - slot_was_set:
+      - requested_slot: null
+    - active_loop: null
+    - action: action_no_paga
+    - action: action_recibir_es_o_no
+    - action: action_recibir_paga_o_no
+    - action: action_guardar_razón
     - action: action_restart2
 
   - story: no paga porque no tiene dinero
@@ -510,7 +542,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2
 
 
@@ -555,7 +586,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2 
 
 
@@ -759,7 +789,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2 
 
   - story: finish flow
@@ -790,7 +819,6 @@ stories:
     - action: action_recibir_es_o_no
     - action: action_recibir_paga_o_no
     - action: action_guardar_razón
-    - action: action_final
     - action: action_restart2
 
 
@@ -810,7 +838,6 @@ stories:
     - action: utter_despedida
     - action: action_recibir_es_o_no
     - action: action_guardar_conoce_o_no
-    - action: action_final
     - action: action_restart2
 
   - story: no es si conoce
@@ -829,6 +856,4 @@ stories:
     - action: action_si_conoce
     - action: action_recibir_es_o_no
     - action: action_guardar_conoce_o_no
-    - action: action_final
     - action: action_restart2
-

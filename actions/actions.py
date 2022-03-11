@@ -137,7 +137,7 @@ class ActionHello2(Action):
         uniqueid = tracker.sender_id
         Querys(uniqueid)
         Updates(7,motivo,compromiso_p,derivacion,fecha_com,"No",uniqueid,rut)
-        dispatcher.utter_message(f'Me comunico con {primernombre}?')
+        dispatcher.utter_message(f'Me comunico con {nombre}?')
         return []
 
 
@@ -156,7 +156,7 @@ class ActionQuestion(Action):
         Querys(uniqueid)
         Updates(1,motivo,compromiso_p,derivacion,fecha_com,"No",uniqueid,rut)
         ConverterDate()
-        dispatcher.utter_message(f'{nombre} estamos llamando de vespucio norte por una boleta pendiente de {monto} pesos vencida el {dia} de {nombreMes} del {anio}. ¿Puede realizar el pago dentro de los proximos 3 días?') 
+        dispatcher.utter_message(f'{nombre}. Estamos llamando de vespucio norte por una boleta pendiente de {monto} pesos vencida el {dia} de {nombreMes} del {anio}. ¿Puede realizar el pago dentro de los próximos 3 días?') 
         Updates(2,motivo,compromiso_p,derivacion,fecha_com,"Si",uniqueid,rut)
            
         return []
@@ -371,7 +371,7 @@ class ActionMonto(Action):
         uniqueid = tracker.sender_id
         #progreso(2,razon,compromiso_p,derivacion,fecha_com,"Si",uniqueid)
         Querys(uniqueid)
-        dispatcher.utter_message(f'El monto adeudado es de {monto} pesos, con oferta de {oferta}. Podrá pagar dentro de los 3 proximos días?')
+        dispatcher.utter_message(f'El monto adeudado es de {monto} pesos. Podrá pagar dentro de los 3 próximos días?')
         return []
 
 class FechaVencimiento(Action):
@@ -382,7 +382,7 @@ class FechaVencimiento(Action):
         global uniqueid
         uniqueid = tracker.sender_id
         Querys(uniqueid)
-        dispatcher.utter_message(f'La fecha sería el {dia} de {nombreMes} del {anio}, osea dentro de 3 días. Cree que podría cancelar?')
+        dispatcher.utter_message(f'La fecha sería el {dia} de {nombreMes} del {anio}, osea dentro de 3 días. Cree que podrá cancelar?')
         return []
 
 
